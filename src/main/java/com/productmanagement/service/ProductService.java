@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Objects;
+
 @Service
 @Transactional
 @AllArgsConstructor
@@ -28,5 +30,14 @@ public class ProductService {
 
 	public Mono save(final Product product) {
 		return productRepository.save(product);
+	}
+
+	public Mono delete(final String id) {
+		final Mono<Product> dbProduct = getById(id);
+		if (Objects.isNull(dbProduct)) {
+			return Mono.empty();
+		}
+		return getById(id).switchIfEmpty(Mono.empty()).filter(Objects::nonNull).flatMap(productToBeDeleted -> productRepository
+				.delete(productToBeDeleted).then(Mono.just(productToBeDeleted)));
 	}
 }

@@ -34,4 +34,9 @@ public class ProductController {
 		return productService.save(product);
 	}
 
+	@DeleteMapping("{id}")
+	public Mono delete(@PathVariable final String id) {
+		return productService.delete(id);
+	}
+
 }
