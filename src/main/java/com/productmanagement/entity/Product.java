@@ -1,4 +1,4 @@
-package com.usermanagement.entity;
+package com.productmanagement.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,4 +16,5 @@ public class Product {
 	private String name;
 	private String description;
 	private Double price;
+
 }

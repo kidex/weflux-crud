@@ -1,6 +1,6 @@
-package com.usermanagement.repository;
+package com.productmanagement.repository;
 
-import com.usermanagement.entity.Product;
+import com.productmanagement.entity.Product;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 

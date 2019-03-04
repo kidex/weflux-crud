@@ -1,7 +1,7 @@
-package com.usermanagement.service;
+package com.productmanagement.service;
 
-import com.usermanagement.entity.Product;
-import com.usermanagement.repository.ProductRepository;
+import com.productmanagement.entity.Product;
+import com.productmanagement.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,4 +22,11 @@ public class ProductService {
 		return productRepository.findById(id);
 	}
 
+	public Mono update(final String id, final Product product) {
+		return productRepository.save(product);
+	}
+
+	public Mono save(final Product product) {
+		return productRepository.save(product);
+	}
 }

@@ -1,4 +1,4 @@
-package com.usermanagement;
+package com.productmanagement;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
